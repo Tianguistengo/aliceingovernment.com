@@ -85,7 +85,7 @@ function updateSelectedSolutions (event) {
   if (selectedSolutions.length === 3) {
     // hide other solutions
     for (const element of solutionElements) {
-      if (!selectedSolutions.includes(element.dataset.rank)) {
+      if (!selectedSolutions.includes(element.dataset.link)) {
         element.classList.add('inactive')
       }
     }
@@ -250,7 +250,7 @@ function renderHeader (linked = true) {
 
 function solutionTemplate (solution) {
   return html`
-    <div class="project-box col-xs-6" data-rank=${solution.rank}>
+    <div class="project-box col-xs-6" data-link=${solution.link}>
       <a href="${solution.link}" target="drawdown">
       <h4>Solution #${solution.rank}</h4>
       <h3>${solution.name}</h3>
@@ -260,7 +260,7 @@ function solutionTemplate (solution) {
         <input
           type="checkbox"
           name="solution-${solution.rank}"
-          value="${solution.rank}"
+          value="${solution.link}"
           @change="${updateSelectedSolutions}">
         <span class="checkmark"><span>VOTE</span></span>
       </label>      

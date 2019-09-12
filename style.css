@@ -506,6 +506,10 @@ img.home-dance{
     width: 70%;
 }
 
+ul.country-votes {
+    padding: 0;
+}
+
 @media only screen and (min-width: 481px){
     .votes h2{
         width: 80%;
@@ -517,17 +521,6 @@ img.home-dance{
     color: #000000;
     top: -46px;
     font-size: 16px;
-}
-
-em.index {
-    font-family: monospace;
-    display: inline-block;
-    width: 3em;
-    text-align: right;
-    margin-left: -3em;
-}
-em.index:after {
-  content: '.';
 }
 
 .solution ul {

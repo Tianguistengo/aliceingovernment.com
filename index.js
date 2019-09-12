@@ -172,9 +172,9 @@ async function handleRouting (location, event) {
   if (active === 'voters') {
     nav['vote'].classList.add('active-prev')
     nav['voters'].classList.add('active')
-    if (slug) {
+    if (slug && myVote) {
       const template = html`
-        <div class="my-vote info-box">Congratulations, you are voter # <strong>${myVote.index}</strong> from <strong>${countryName(myVote.nationality)}</strong></div>
+        <div class="my-vote info-box">Congratulations, you have compleated your vote!</strong></div>
         <div class="vertical-line-small"></div>
         ${countryShortTemplate({ code: myVote.nationality, vote: [myVote] })}
       `
@@ -318,7 +318,7 @@ function countryShortTemplate (country) {
         ${flag(country.code)}
         ${countryName(country.code)}
       </h2>
-      <span class="counter">${country.count} Votes</span>
+      ${country.count ? html`<span class="counter">${country.count} Votes</span>` : ''}
     </div>
     <div class="project-box solution content">
         <ul class="country-votes">
@@ -337,7 +337,7 @@ function renderVotes (stats) {
       <div id="my-vote"></div>
       <div class="project-box solution info-box">
         <h3>Check out what other voters have said:</h3>
-        <strong>Total # of Voters</strong>: ---<strong>${stats.global.count}</strong>
+        <strong>Total # of Voters</strong>: --- <strong>${stats.global.count}</strong>
         <br>
         <strong>Countries</strong>: ---<strong> ${stats.country.length} </strong>
       </div>
@@ -352,7 +352,6 @@ function voteTemplate (vote) {
   return html`
   <li>
     <div>
-      <em class="index">${vote.index}</em>
       <strong>${vote.name}</strong>
       <em>${vote.description}</em>
     </div>

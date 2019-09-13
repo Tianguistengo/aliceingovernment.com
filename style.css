@@ -510,6 +510,15 @@ ul.country-votes {
     padding: 0;
 }
 
+ul.country-votes li {
+    margin-top: 0.5em;
+}
+
+div.date {
+    font-size: 0.75em;
+    text-align: right;
+}
+
 @media only screen and (min-width: 481px){
     .votes h2{
         width: 80%;

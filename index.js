@@ -351,6 +351,7 @@ function renderVotes (stats) {
 function voteTemplate (vote) {
   return html`
   <li>
+    <div class="date">${vote.confirmed.slice(0, 10)}</div>
     <div>
       <strong>${vote.name}</strong>
       <em>${vote.description}</em>
